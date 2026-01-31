@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { FileText, Plus } from "lucide-react";
+import { FileText, Plus, Leaf } from "lucide-react";
 import dbConnect from "@/lib/db";
 import Invoice, { IInvoice } from "@/models/Invoice";
 import { DashboardHeader } from "@/components/DashboardHeader";
@@ -73,16 +73,24 @@ export default async function Dashboard() {
 
         {invoices.length === 0 ? (
           /* Empty State */
-          <div className="border-2 border-dashed rounded-lg p-12 text-center">
-            <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-            <h2 className="text-xl font-semibold mb-2">No invoices yet</h2>
-            <p className="text-muted-foreground mb-6">
-              Create your first invoice to get started.
+          <div className="border-2 border-dashed border-green-300 dark:border-green-700 rounded-lg p-12 text-center bg-green-50/50 dark:bg-green-900/10">
+            <div className="flex justify-center mb-4">
+              <div className="relative">
+                <FileText className="h-12 w-12 text-muted-foreground" />
+                <Leaf className="h-5 w-5 text-green-600 dark:text-green-400 absolute -top-1 -right-1" />
+              </div>
+            </div>
+            <h2 className="text-xl font-semibold mb-2">Start your paperless journey</h2>
+            <p className="text-muted-foreground mb-2">
+              Create your first digital invoice and help save the environment.
+            </p>
+            <p className="text-sm text-green-600 dark:text-green-400 mb-6">
+              Every paperless invoice makes a difference.
             </p>
             <Link href="/dashboard/invoices/new">
-              <Button>
-                <Plus className="h-4 w-4 mr-2" />
-                Create Invoice
+              <Button className="bg-green-600 hover:bg-green-700 text-white">
+                <Leaf className="h-4 w-4 mr-2" />
+                Create Paperless Invoice
               </Button>
             </Link>
           </div>

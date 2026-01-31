@@ -1,6 +1,7 @@
 "use client";
 
 import { IInvoice, IInvoiceItem } from "@/models/Invoice";
+import { Leaf } from "lucide-react";
 
 function formatCurrency(amount: number) {
   return new Intl.NumberFormat("en-LK", {
@@ -36,6 +37,11 @@ export function InvoicePreview({ invoice }: InvoicePreviewProps) {
               src={invoice.businessLogo}
               alt="Company Logo"
               className="h-16 w-16 object-contain"
+              style={{ maxWidth: '64px', maxHeight: '64px' }}
+              onError={(e) => {
+                // Hide image if it fails to load
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
             />
           )}
           <div>
@@ -179,6 +185,16 @@ export function InvoicePreview({ invoice }: InvoicePreviewProps) {
           </p>
         </div>
       )}
+
+      {/* Eco-Friendly Footer */}
+      <div className="mt-8 pt-4 border-t border-dashed border-green-300 dark:border-green-700">
+        <div className="flex items-center justify-center gap-2 text-green-600 dark:text-green-400">
+          <Leaf className="h-4 w-4" />
+          <p className="text-xs">
+            This is a paperless invoice. Going digital helps save trees and protect our environment.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

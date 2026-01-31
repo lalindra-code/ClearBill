@@ -14,8 +14,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { FileText, Plus, Trash2, ArrowLeft } from "lucide-react";
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import { Plus, Trash2, ArrowLeft, Leaf } from "lucide-react";
+import { DashboardHeader } from "@/components/DashboardHeader";
 
 interface InvoiceItem {
   description: string;
@@ -176,16 +176,7 @@ export default function NewInvoicePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-card">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2">
-            <FileText className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">ClearBill</span>
-          </Link>
-          <ThemeSwitcher />
-        </div>
-      </header>
+      <DashboardHeader />
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8 max-w-4xl">
@@ -199,7 +190,13 @@ export default function NewInvoicePage() {
           </Link>
         </div>
 
-        <h1 className="text-3xl font-bold mb-8">Create New Invoice</h1>
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-3xl font-bold">Create New Invoice</h1>
+          <span className="inline-flex items-center gap-1 text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1.5 rounded-full">
+            <Leaf className="h-3 w-3" />
+            100% Paperless
+          </span>
+        </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Invoice Details */}
@@ -528,13 +525,22 @@ export default function NewInvoicePage() {
             </CardContent>
           </Card>
 
+          {/* Eco Message */}
+          <div className="flex items-center justify-center gap-2 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+            <Leaf className="h-5 w-5 text-green-600 dark:text-green-400" />
+            <p className="text-sm text-green-700 dark:text-green-300">
+              This digital invoice helps reduce paper waste and protects our environment.
+            </p>
+          </div>
+
           {/* Actions */}
           <div className="flex gap-4 justify-end">
             <Button type="button" variant="outline" asChild>
               <Link href="/dashboard">Cancel</Link>
             </Button>
-            <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Creating..." : "Create Invoice"}
+            <Button type="submit" disabled={isSubmitting} className="bg-green-600 hover:bg-green-700">
+              <Leaf className="h-4 w-4 mr-2" />
+              {isSubmitting ? "Creating..." : "Create Paperless Invoice"}
             </Button>
           </div>
         </form>
