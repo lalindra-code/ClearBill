@@ -15,7 +15,7 @@ export default function Home() {
           </div>
           <nav className="flex items-center gap-4">
             <ThemeSwitcher />
-            <Link href="/dashboard">
+            <Link href="/dashboard/invoices/new">
               <Button>Get Started</Button>
             </Link>
           </nav>
@@ -36,7 +36,7 @@ export default function Home() {
               compliance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/dashboard">
+              <Link href="/dashboard/invoices/new">
                 <Button size="lg" className="text-lg px-8">
                   Get Started Free
                 </Button>
@@ -78,7 +78,7 @@ export default function Home() {
             <p className="text-lg mb-8 opacity-90">
               Join hundreds of Sri Lankan businesses using ClearBill.
             </p>
-            <Link href="/dashboard">
+            <Link href="/dashboard/invoices/new">
               <Button
                 size="lg"
                 variant="secondary"
