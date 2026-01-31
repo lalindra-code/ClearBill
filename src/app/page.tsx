@@ -1,18 +1,20 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FileText, Zap, Shield } from "lucide-react";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b bg-card/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <FileText className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold text-foreground">ClearBill</span>
           </div>
-          <nav>
+          <nav className="flex items-center gap-4">
+            <ThemeSwitcher />
             <Link href="/dashboard">
               <Button>Get Started</Button>
             </Link>
@@ -90,7 +92,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t bg-white py-8">
+      <footer className="border-t bg-card py-8">
         <div className="container mx-auto px-4 text-center text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} ClearBill. Made in Sri Lanka.</p>
         </div>

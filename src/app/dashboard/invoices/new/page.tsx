@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { FileText, Plus, Trash2, ArrowLeft } from "lucide-react";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 interface InvoiceItem {
   description: string;
@@ -141,12 +142,13 @@ export default function NewInvoicePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b bg-white">
+      <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
             <FileText className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold text-foreground">ClearBill</span>
           </Link>
+          <ThemeSwitcher />
         </div>
       </header>
 

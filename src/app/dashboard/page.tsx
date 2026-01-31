@@ -10,6 +10,7 @@ import {
 import { FileText, Plus } from "lucide-react";
 import dbConnect from "@/lib/db";
 import Invoice, { IInvoice } from "@/models/Invoice";
+import { DashboardHeader } from "@/components/DashboardHeader";
 
 async function getInvoices(): Promise<IInvoice[]> {
   try {
@@ -56,15 +57,7 @@ export default async function Dashboard() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-white">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2">
-            <FileText className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">ClearBill</span>
-          </Link>
-        </div>
-      </header>
+      <DashboardHeader />
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
