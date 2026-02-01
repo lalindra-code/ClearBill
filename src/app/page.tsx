@@ -48,6 +48,35 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Eco Impact Section */}
+        <section className="bg-gradient-to-r from-green-600 to-emerald-600 dark:from-green-800 dark:to-emerald-800 text-white py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <Leaf className="h-12 w-12 mx-auto mb-4 opacity-80" />
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Join the Paperless Movement
+              </h2>
+              <p className="text-lg opacity-90 mb-6">
+                Every digital invoice saves paper, ink, and energy. Together, we can make a difference for our environment.
+              </p>
+              <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto text-center">
+                <div>
+                  <div className="text-3xl font-bold">0</div>
+                  <div className="text-sm opacity-80">Trees Cut</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">100%</div>
+                  <div className="text-sm opacity-80">Digital</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">Zero</div>
+                  <div className="text-sm opacity-80">Waste</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Features Section */}
         <section className="container mx-auto px-4 py-20 border-t">
           <h2 className="text-3xl font-bold text-center mb-4">
@@ -77,35 +106,6 @@ export default function Home() {
               title="LKR & Tax Ready"
               description="Built-in support for Sri Lankan Rupees and local tax calculations."
             />
-          </div>
-        </section>
-
-        {/* Eco Impact Section */}
-        <section className="bg-gradient-to-r from-green-600 to-emerald-600 dark:from-green-800 dark:to-emerald-800 text-white py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <Leaf className="h-12 w-12 mx-auto mb-4 opacity-80" />
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Join the Paperless Movement
-              </h2>
-              <p className="text-lg opacity-90 mb-6">
-                Every digital invoice saves paper, ink, and energy. Together, we can make a difference for our environment.
-              </p>
-              <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto text-center">
-                <div>
-                  <div className="text-3xl font-bold">0</div>
-                  <div className="text-sm opacity-80">Trees Cut</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold">100%</div>
-                  <div className="text-sm opacity-80">Digital</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold">Zero</div>
-                  <div className="text-sm opacity-80">Waste</div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
