@@ -3,7 +3,8 @@
     "allow": [
       "Bash(curl:*)",
       "Bash(tasklist:*)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Bash(cd:*)"
     ]
   }
 }
