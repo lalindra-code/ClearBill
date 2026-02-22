@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import {
   Menu,
@@ -36,7 +36,6 @@ export function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
   const { data: session, status } = useSession();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
