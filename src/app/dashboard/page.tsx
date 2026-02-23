@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth/next";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,14 +10,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { FileText, Plus, Leaf } from "lucide-react";
+import { authOptions } from "@/lib/auth";
 import dbConnect from "@/lib/db";
 import Invoice, { IInvoice } from "@/models/Invoice";
 import { DashboardHeader } from "@/components/DashboardHeader";
 
-async function getInvoices(): Promise<IInvoice[]> {
+async function getInvoices(userId: string): Promise<IInvoice[]> {
   try {
     await dbConnect();
-    const invoices = await Invoice.find({}).sort({ createdAt: -1 }).lean();
+    const invoices = await Invoice.find({ userId }).sort({ createdAt: -1 }).lean();
     return JSON.parse(JSON.stringify(invoices));
   } catch (error) {
     console.error("Error fetching invoices:", error);
@@ -53,7 +56,10 @@ function getStatusColor(status: string) {
 }
 
 export default async function Dashboard() {
-  const invoices = await getInvoices();
+  const session = await getServerSession(authOptions);
+  if (!session) redirect("/auth/signin");
+
+  const invoices = await getInvoices(session.user.id);
 
   return (
     <div className="min-h-screen bg-background">
