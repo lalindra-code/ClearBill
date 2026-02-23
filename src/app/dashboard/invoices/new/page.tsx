@@ -163,9 +163,9 @@ export default function NewInvoicePage() {
 
       const data = await response.json();
 
-      if (response.ok) {
-        // Small delay to ensure database write is fully acknowledged
-        await new Promise(resolve => setTimeout(resolve, 500));
+      if (response.ok && data._id) {
+        router.push(`/invoices/${data._id}/preview`);
+      } else if (response.ok) {
         router.push("/dashboard");
       } else {
         console.error("API error:", data);
