@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
 import dbConnect from "@/lib/db";
 import Invoice from "@/models/Invoice";
 
@@ -18,10 +20,16 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     await dbConnect();
     const data = await request.json();
 
-    const invoice = await Invoice.create(data);
+    // userId is injected server-side after the spread so the client cannot spoof it
+    const invoice = await Invoice.create({ ...data, userId: session.user.id });
     return NextResponse.json(invoice, { status: 201 });
   } catch (error) {
     console.error("Error creating invoice:", error);
